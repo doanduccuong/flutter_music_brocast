@@ -17,8 +17,6 @@ migrate_working_dir/
 .idea/
 .metadata
 build/
-ios/
-android/
 analysis_options.yaml
 .fvm/
 .gitattributes/
@@ -31,13 +29,12 @@ analysis_options.yaml
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
-.dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
 .packages
 .pub-cache/
 .pub/
-/build/
+/build
 
 # Web related
 lib/generated_plugin_registrant.dart
