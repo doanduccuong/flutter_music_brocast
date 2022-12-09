@@ -55,6 +55,7 @@ dependencies:
   flutter_svg: ^1.1.6
   connectivity_plus: ^2.3.9
   font_awesome_flutter: ^10.3.0
+  flutter_native_splash: ^2.2.9
 
 dev_dependencies:
   flutter_test:
