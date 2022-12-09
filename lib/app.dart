@@ -72,7 +72,6 @@ class _MyAppState extends State<MyApp> {
         ],
         child: BlocBuilder<AppSettingCubit, AppSettingState>(
           builder: (context, state) {
-
             return GestureDetector(
               onTap: () {
                 _hideKeyboard(context);

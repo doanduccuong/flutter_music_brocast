@@ -28,12 +28,18 @@ class AppTextStyle {
   static final blackS18W800 = blackS18.copyWith(fontWeight: FontWeight.w800);
 
   ///White
-  static const white = TextStyle(color: Colors.white);
+  static const white = TextStyle(color: AppColors.textWhite);
+  static const white1 = TextStyle(color: AppColors.textWhite1);
 
   //s12
   static final whiteS12 = white.copyWith(fontSize: 12);
+  static final white1S22 = white1.copyWith(fontSize: 22);
+  static final whiteS18 = white.copyWith(fontSize: 18);
   static final whiteS12Bold = whiteS12.copyWith(fontWeight: FontWeight.bold);
   static final whiteS12W800 = whiteS12.copyWith(fontWeight: FontWeight.w800);
+  static final whiteS22W700 =white1.copyWith(fontWeight: FontWeight.w700,fontSize: 22);
+  static final whiteS25W700 =white.copyWith(fontWeight: FontWeight.w700,fontSize: 25);
+  static final white1S25W700 =white1S22.copyWith(fontWeight: FontWeight.w700);
 
   //s14
   static final whiteS14 = white.copyWith(fontSize: 14);
@@ -46,7 +52,6 @@ class AppTextStyle {
   static final whiteS16W800 = whiteS16.copyWith(fontWeight: FontWeight.w800);
 
   //s18
-  static final whiteS18 = white.copyWith(fontSize: 18);
   static final whiteS18Bold = whiteS18.copyWith(fontWeight: FontWeight.bold);
   static final whiteS18W800 = whiteS18.copyWith(fontWeight: FontWeight.w800);
 

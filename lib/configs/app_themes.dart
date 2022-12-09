@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'app_color.dart';
 
 class AppThemes {
-  static const _font = 'app.dart';
+  static const _font = 'Satoshi';
 
   bool isDarkMode;
   Brightness brightness;
@@ -11,7 +11,7 @@ class AppThemes {
   Color secondaryColor;
 
   AppThemes({
-    this.isDarkMode = false,
+    this.isDarkMode = true,
     this.primaryColor = AppColors.primary,
     this.secondaryColor = AppColors.secondary,
   }) : brightness = isDarkMode ? Brightness.dark : Brightness.light;
@@ -51,7 +51,7 @@ class AppThemes {
       appBarTheme: AppBarTheme(
         color: backgroundColor,
         iconTheme:
-            IconThemeData(color: isDarkMode ? Colors.white : Colors.black),
+            IconThemeData(color: isDarkMode ? Colors.red : Colors.black),
         titleTextStyle: isDarkMode
             ? const TextStyle(
                 color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)

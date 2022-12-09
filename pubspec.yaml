@@ -79,10 +79,15 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   generate: true
+  fonts:
+    - family: Satoshi
+      fonts:
+        - asset: fonts/Satoshi-Regular.otf
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/choose_mode_background.png
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

@@ -13,5 +13,6 @@ class AppImages {
   static const spontifyLogo="assets/images/spontify_logo.svg";
 
   ///Back Ground
-  static const getStartBackGround="assets/images/get_start_background.png";
+  static const getStartBackGround = "assets/images/get_start_background.png";
+  static const chooseModeBackGround = "assets/images/choose_mode_background.png";
 }

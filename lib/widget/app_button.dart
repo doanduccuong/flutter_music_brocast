@@ -1,89 +1,47 @@
 import 'package:flutter/material.dart';
 
 import '../configs/app_dimens.dart';
-import 'app_circularprogress_indicator.dart';
-
 
 class AppButton extends StatelessWidget {
-  final String? title;
-  final Widget? leadingIcon;
-  final Widget? trailingIcon;
-
-  final bool isLoading;
-
-  final double? height;
-  final double? width;
   final double? borderWidth;
   final double? cornerRadius;
-
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
   final Color? backgroundColor;
+  final Function()? onTap;
   final Color? borderColor;
-
-  final TextStyle? textStyle;
-
-  final VoidCallback? onPressed;
+  final Widget? child;
+  final BoxShape? buttonShape;
 
   const AppButton({
     Key? key,
-    this.title,
-    this.leadingIcon,
-    this.trailingIcon,
-    this.isLoading = false,
-    this.height,
-    this.width,
     this.borderWidth,
+    this.buttonShape,
+    this.child,
     this.cornerRadius,
     this.backgroundColor,
     this.borderColor,
-    this.textStyle,
-    this.onPressed,
+    this.padding,
+    this.onTap,
+    this.margin,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: height ?? AppDimens.buttonHeight,
-      width: width ?? double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-                cornerRadius ?? AppDimens.buttonCornerRadius),
-          ),
-          side: BorderSide(
-            color: borderColor ?? Colors.transparent,
-            width: borderWidth ?? 0,
-          ),
-          primary: backgroundColor,
-          padding: const EdgeInsets.all(0),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: padding,
+        margin: margin,
+        decoration: BoxDecoration(
+          shape: buttonShape ?? BoxShape.rectangle,
+          color: backgroundColor,
+          borderRadius: buttonShape != null
+              ? null
+              : BorderRadius.circular(AppDimens.buttonCornerRadius),
         ),
-        onPressed: onPressed,
-        child: _buildChildWidget(),
+        child: child,
       ),
     );
-  }
-
-  Widget _buildChildWidget() {
-    if (isLoading) {
-      return const AppCircularProgressIndicator(color: Colors.white);
-    } else {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          leadingIcon ?? Container(),
-          title != null
-              ? Text(
-            title!,
-            style: textStyle ??
-                const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.red),
-          )
-              : Container(),
-          trailingIcon ?? Container(),
-        ],
-      );
-    }
   }
 }

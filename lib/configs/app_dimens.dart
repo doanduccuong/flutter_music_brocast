@@ -11,7 +11,7 @@ class AppDimens {
   static const double fontExtra = 18.0;
 
   static const double buttonHeight = 48;
-  static const double buttonCornerRadius = 8;
+  static const double buttonCornerRadius = 30;
   static const double buttonBorderWidth = 1;
 
   static const double appBarHeight = 56;
