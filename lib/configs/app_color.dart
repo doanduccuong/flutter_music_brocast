@@ -44,6 +44,7 @@ class AppColors {
   static const Color buttonBGSecondary = Color(0xFF3E463B);
   static const Color buttonBGThird = Color(0xFF62CD5D);
   static const Color buttonBGFourth = Color(0xFF42C83C);
+  static const Color buttonBack = Color(0xFF232222);
 
 
   /// Tabs
@@ -51,4 +52,8 @@ class AppColors {
 
   ///BottomNavigationBar
   static const Color bottomNavigationBar = Color(0xFF919191);
+
+  ///Icon
+  static const Color backIconColor = Color(0xFFDDDDDD);
+
 }
