@@ -15,4 +15,9 @@ class AppImages {
   ///Back Ground
   static const getStartBackGround = "assets/images/get_start_background.png";
   static const chooseModeBackGround = "assets/images/choose_mode_background.png";
+  static const signInBackGround = "assets/images/sign_in_background.png";
+
+  ///Icon
+  static const googleIcon = "assets/images/google_icon.svg";
+  static const appleIcon = "assets/images/apple_icon.svg.svg";
 }

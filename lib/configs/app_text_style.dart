@@ -39,7 +39,10 @@ class AppTextStyle {
   static final whiteS12W800 = whiteS12.copyWith(fontWeight: FontWeight.w800);
   static final whiteS22W700 =white1.copyWith(fontWeight: FontWeight.w700,fontSize: 22);
   static final whiteS25W700 =white.copyWith(fontWeight: FontWeight.w700,fontSize: 25);
-  static final white1S25W700 =white1S22.copyWith(fontWeight: FontWeight.w700);
+  static final whiteS26W700 =white.copyWith(fontWeight: FontWeight.w700,fontSize: 26);
+  static final white1S25W700 = white1S22.copyWith(fontWeight: FontWeight.w700,fontSize: 22);
+  static final whiteS20W700 = white1S22.copyWith(fontWeight: FontWeight.w700,fontSize: 20);
+  static final whiteS30W700 = white.copyWith(fontWeight: FontWeight.w700,fontSize: 30);
 
   //s14
   static final whiteS14 = white.copyWith(fontSize: 14);
@@ -100,4 +103,17 @@ class AppTextStyle {
   static final tintS18 = tint.copyWith(fontSize: 18);
   static final tintS18Bold = tintS18.copyWith(fontWeight: FontWeight.bold);
   static final tintS18W800 = tintS18.copyWith(fontWeight: FontWeight.w800);
+
+  /// Grey primary
+  static const greyPrimary = TextStyle(color: AppColors.textGrey);
+
+  //s18
+  static final greyPrimaryS18W400 = greyPrimary.copyWith(fontWeight: FontWeight.w400,fontSize: 18);
+
+
+  ///Hint TextStyle
+  static const hintTextBoldStyle = TextStyle(color: AppColors.hintText);
+
+
+  static final hintTextBoldStyleS16 = hintTextBoldStyle.copyWith(fontSize: 16);
 }

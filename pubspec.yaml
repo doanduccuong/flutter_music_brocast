@@ -80,14 +80,17 @@ flutter:
   uses-material-design: true
   generate: true
   fonts:
-    - family: Satoshi
+    - family: Satoshi-Regular
       fonts:
         - asset: fonts/Satoshi-Regular.otf
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/apple_icon.svg
     - assets/images/choose_mode_background.png
+    - assets/images/google_icon.svg
+    - assets/images/sign_in_background.png
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

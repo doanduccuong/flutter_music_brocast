@@ -3,5 +3,6 @@ class RouteConfig {
   static const String getStartedPage = "/getStartedPage";
   static const String chooseMode = "/chooseMode";
   static const String signInPage = "/signInPage";
+  static const String signInOptionPage = "/signInOptionPage";
 
 }

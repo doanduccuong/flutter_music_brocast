@@ -21,7 +21,7 @@ class ChooseModePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffoldCommon(
       backGroundColor: AppColors.backgroundGrey,
-      padding: 50,
+      padding: const EdgeInsets.only(top: 50),
       decorationImage: const AssetImage(AppImages.chooseModeBackGround),
       body: Column(
         children: [

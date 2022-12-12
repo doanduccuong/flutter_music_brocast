@@ -13,7 +13,7 @@ class GetStartedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffoldCommon(
-      padding: 50,
+      padding: const EdgeInsets.only(top: 50,left: 33),
       backGroundColor: Colors.transparent,
       decorationImage: const AssetImage(AppImages.getStartBackGround),
       body: Column(

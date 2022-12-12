@@ -17,7 +17,7 @@ class AppColors {
   static const Color shadow = Color(0x25606060);
 
   ///Border
-  static const Color border = Color(0xFF606060);
+  static const Color border = Color(0xFF3C3B3B);
 
   ///Divider
   static const Color divider = Color(0xFF606060);
@@ -29,6 +29,10 @@ class AppColors {
   static const Color textBlue = Color(0xFF0000FF);
   static const Color textDisable = Color(0xFF89a3b1);
   static const Color textGrey = Color(0xFF797979);
+  static const Color greyPrimary = Color(0xFFA0A0A0);
+  static const Color textGreen = Color(0xFF38B432);
+  static const Color hintText = Color(0xFFA7A7A7);
+  static const Color greySecondary = Color(0xFFAEAEAE);
 
   ///TextField
   static const Color textFieldEnabledBorder = Color(0xFF919191);
