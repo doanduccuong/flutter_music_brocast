@@ -12,6 +12,8 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffoldCommon(
+      leadingMargin: const EdgeInsets.only(left: 30),
+      padding: const EdgeInsets.fromLTRB(0, 36, 0, 0),
       isHaveAppBar: true,
       decorationImage: const AssetImage(AppImages.signInBackGround),
       body: Column(
@@ -46,6 +48,7 @@ class SignInPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         AppButton(
+          onTap: () =>Navigator.pushNamed(context, RouteConfig.signUpOptionPage),
           margin: const EdgeInsets.only(right: 88),
           backgroundColor: AppColors.buttonBGPrimary,
           padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 36),

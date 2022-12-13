@@ -19,5 +19,5 @@ class AppImages {
 
   ///Icon
   static const googleIcon = "assets/images/google_icon.svg";
-  static const appleIcon = "assets/images/apple_icon.svg.svg";
+  static const appleIcon = "assets/images/apple_icon.svg";
 }

@@ -9,7 +9,7 @@ class AppColors {
 
   ///Background
   static const Color backgroundLight = Color(0xFFFFFFFF);
-  static const Color backgroundDark = Color(0xFF070707);
+  static const Color backgroundDark = Color(0xFF1C1B1B);
   static const Color backgroundColor = Color(0xFF58ADED);
   static const Color backgroundGrey = Color(0xFF494949);
 
@@ -33,6 +33,7 @@ class AppColors {
   static const Color textGreen = Color(0xFF38B432);
   static const Color hintText = Color(0xFFA7A7A7);
   static const Color greySecondary = Color(0xFFAEAEAE);
+  static const Color blue = Color(0xFF288CE9);
 
   ///TextField
   static const Color textFieldEnabledBorder = Color(0xFF919191);
