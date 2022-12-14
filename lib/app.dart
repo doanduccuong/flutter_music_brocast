@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_base_project/core/platform/user_rest_client/user_rest_client.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_base_project/route_config/route_config.dart';
+import 'package:flutter_base_project/router/route_config.dart';
 import 'package:flutter_base_project/setting/app_cubit.dart';
 import 'package:flutter_base_project/setting/app_setting/app_setting_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -3,7 +3,7 @@ import 'package:flutter_base_project/configs/app_color.dart';
 import 'package:flutter_base_project/configs/app_images.dart';
 import 'package:flutter_base_project/configs/app_scafold_common.dart';
 import 'package:flutter_base_project/configs/app_text_style.dart';
-import 'package:flutter_base_project/route_config/route_config.dart';
+import 'package:flutter_base_project/router/route_config.dart';
 import 'package:flutter_base_project/widget/app_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

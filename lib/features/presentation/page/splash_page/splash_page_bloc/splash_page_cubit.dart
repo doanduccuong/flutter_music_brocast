@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_base_project/configs/app_configs.dart';
 import 'package:flutter_base_project/features/domain/repositories/auth_repository.dart';
 import 'package:flutter_base_project/features/domain/repositories/use_repository.dart';
-import 'package:flutter_base_project/route_config/route_config.dart';
+import 'package:flutter_base_project/router/route_config.dart';
 import 'package:meta/meta.dart';
 import 'dart:developer' as logger;
 import '../../../../../widget/app_dialog.dart';

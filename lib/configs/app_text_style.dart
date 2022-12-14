@@ -36,6 +36,8 @@ class AppTextStyle {
   static final white1S22 = white1.copyWith(fontSize: 22);
   static final whiteS18 = white.copyWith(fontSize: 18);
   static final whiteS12Bold = whiteS12.copyWith(fontWeight: FontWeight.bold);
+  static final whiteS10Bold = whiteS12Bold.copyWith(fontSize: 10);
+  static final whiteS20Bold = whiteS12Bold.copyWith(fontSize: 20);
   static final whiteS12W800 = whiteS12.copyWith(fontWeight: FontWeight.w800);
   static final whiteS22W700 =white1.copyWith(fontWeight: FontWeight.w700,fontSize: 22);
   static final whiteS25W700 =white.copyWith(fontWeight: FontWeight.w700,fontSize: 25);

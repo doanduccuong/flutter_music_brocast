@@ -12,6 +12,9 @@ class AppColors {
   static const Color backgroundDark = Color(0xFF1C1B1B);
   static const Color backgroundColor = Color(0xFF58ADED);
   static const Color backgroundGrey = Color(0xFF494949);
+  static const Color kBrandPrimaryColor = Color(0xFF279656);
+  static const Color kWhiteBackgroundColor = Color(0xFFFFFFFF);
+
 
   ///Shadow
   static const Color shadow = Color(0x25606060);
@@ -34,6 +37,7 @@ class AppColors {
   static const Color hintText = Color(0xFFA7A7A7);
   static const Color greySecondary = Color(0xFFAEAEAE);
   static const Color blue = Color(0xFF288CE9);
+  static const Color unselectedColor = Color(0xFF616161);
 
   ///TextField
   static const Color textFieldEnabledBorder = Color(0xFF919191);
@@ -50,6 +54,7 @@ class AppColors {
   static const Color buttonBGThird = Color(0xFF62CD5D);
   static const Color buttonBGFourth = Color(0xFF42C83C);
   static const Color buttonBack = Color(0xFF232222);
+  static const Color buttonPLay = Color(0xFF2C2C2C);
 
 
   /// Tabs
@@ -60,5 +65,7 @@ class AppColors {
 
   ///Icon
   static const Color backIconColor = Color(0xFFDDDDDD);
+  static const Color playIconColor = Color(0xFF959595);
+  static const Color heartIconColor = Color(0xFF565656);
 
 }

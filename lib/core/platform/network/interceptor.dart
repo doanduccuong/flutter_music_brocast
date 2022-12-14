@@ -12,20 +12,19 @@ class ApiInterceptors extends InterceptorsWrapper {
     final method = options.method;
     final uri = options.uri;
     final data = options.data;
-    final token = await LocalStorage.getApiTokenKey();
-    if (token != null) {
-      options.headers['Authorization'] = 'Bearer $token';
-    }
+    options.headers = {
+      'X-RapidAPI-Key': '20b5e3e205msh24c1b0718606d92p129e39jsn589fb5602927',
+      'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+    };
     if (method == 'GET') {
       logger.log(
           "✈️ REQUEST[$method] => PATH: $uri \n Token: ${options.headers}");
     } else {
       try {
         logger.log(
-            "✈️ REQUEST[$method] => PATH: $uri \n Token: $token \n DATA: ${jsonEncode(data)}");
+            "✈️ REQUEST[$method] => PATH: $uri \n DATA: ${jsonEncode(data)}");
       } catch (e) {
-        logger.log(
-            "✈️ REQUEST[$method] => PATH: $uri \n Token: $token \n DATA: $data");
+        logger.log("✈️ REQUEST[$method] => PATH: $uri \n DATA: $data");
       }
     }
     super.onRequest(options, handler);

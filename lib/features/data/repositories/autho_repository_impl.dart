@@ -1,7 +1,9 @@
+import 'package:flutter_base_project/configs/app_configs.dart';
+import 'package:flutter_base_project/core/entites/artist_entity.dart';
+import 'package:flutter_base_project/core/entites/artist_related_entity.dart';
 import 'package:flutter_base_project/core/platform/user_rest_client/user_rest_client.dart';
-import 'package:flutter_base_project/features/data/data_source/local_storage.dart';
-import 'package:flutter_base_project/features/data/model/response/token_response/token_entity.dart';
 import 'package:flutter_base_project/features/domain/repositories/auth_repository.dart';
+import 'package:flutter_base_project/model/album_dto.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final UserRestClient userRestClient;
@@ -11,27 +13,24 @@ class AuthRepositoryImpl implements AuthRepository {
   });
 
   @override
-  Future<TokenEntity?> getToken() async {
-    return null;
+  Future<AlbumDTO> getAlbum() async {
+    final response = await userRestClient.getAlbums(LocationAPIConfig.artistRelatedId);
+    final albumCollection = AlbumDTO(albums: response.albums);
+    return albumCollection;
   }
 
   @override
-  Future<void> removeToken() async {
-    LocalStorage.removeApiTokenKey();
+  Future<ArtistEntity> getArtist() async {
+    final response =
+        await userRestClient.getArtists(LocationAPIConfig.artistRelatedId);
+
+    return response;
   }
 
   @override
-  Future<void> saveToken(TokenEntity token) async {
-    LocalStorage.saveToken(token.accessToken ?? "");
-  }
+  Future<ArtistRelatedEntity> getArtistRelated() async {
+    final response = await userRestClient.getArtistsRelated();
 
-  @override
-  Future<TokenEntity?> signIn(String username, String password) async {
-    //Todo
-    await Future.delayed(const Duration(seconds: 2));
-    return const TokenEntity(
-      accessToken: 'app_access_token',
-      refreshToken: 'app_refresh_token',
-    );
+    return response;
   }
 }

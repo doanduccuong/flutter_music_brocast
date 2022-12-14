@@ -6,7 +6,7 @@ import 'package:flutter_base_project/configs/app_scafold_common.dart';
 import 'package:flutter_base_project/configs/app_text_style.dart';
 import 'package:flutter_base_project/configs/app_themes.dart';
 import 'package:flutter_base_project/enum/enum.dart';
-import 'package:flutter_base_project/route_config/route_config.dart';
+import 'package:flutter_base_project/router/route_config.dart';
 import 'package:flutter_base_project/setting/app_setting/app_setting_cubit.dart';
 import 'package:flutter_base_project/widget/app_button.dart';
 import 'package:flutter_base_project/widget/app_collumn_text.dart';

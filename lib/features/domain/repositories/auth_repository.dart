@@ -1,12 +1,9 @@
-import '../../data/model/response/token_response/token_entity.dart';
+import 'package:flutter_base_project/core/entites/artist_entity.dart';
+import 'package:flutter_base_project/core/entites/artist_related_entity.dart';
+import 'package:flutter_base_project/model/album_dto.dart';
 
-abstract class AuthRepository{
-  Future<TokenEntity?> getToken();
-
-  Future<void> saveToken(TokenEntity token);
-
-  Future<void> removeToken();
-
-  Future<TokenEntity?> signIn(String username, String password);
-
+abstract class AuthRepository {
+  Future<AlbumDTO> getAlbum();
+  Future<ArtistEntity> getArtist();
+  Future<ArtistRelatedEntity> getArtistRelated();
 }

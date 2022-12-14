@@ -8,3 +8,8 @@ enum AppMode {
   final ThemeMode? currentMode;
   const AppMode(this.currentMode);
 }
+
+enum PageStatus {
+  LOADING,
+  LOADED,
+}

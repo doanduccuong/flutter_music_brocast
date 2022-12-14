@@ -3,30 +3,37 @@ import 'package:flutter_base_project/configs/app_color.dart';
 import 'package:flutter_base_project/configs/app_images.dart';
 import 'package:flutter_base_project/configs/app_scafold_common.dart';
 import 'package:flutter_base_project/configs/app_text_style.dart';
+import 'package:flutter_base_project/router/route_config.dart';
 import 'package:flutter_base_project/widget/app_button.dart';
 import 'package:flutter_base_project/widget/app_text_form_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SignUpOptionPage extends StatefulWidget {
-  const SignUpOptionPage({Key? key}) : super(key: key);
+class SignInOptionPage extends StatefulWidget {
+  const SignInOptionPage({Key? key}) : super(key: key);
 
   @override
-  State<SignUpOptionPage> createState() => _SignUpOptionPageState();
+  State<SignInOptionPage> createState() => _SignInOptionPageState();
 }
 
-class _SignUpOptionPageState extends State<SignUpOptionPage> {
-  final _fullNameController = TextEditingController();
-  final _emailController = TextEditingController();
+class _SignInOptionPageState extends State<SignInOptionPage> {
+  final _userNameController = TextEditingController();
   final _passwordController = TextEditingController();
+  @override
+  void dispose() {
+    _userNameController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppScaffoldCommon(
-      padding: const EdgeInsets.fromLTRB(28, 36, 28, 74),
+      padding: const EdgeInsets.fromLTRB(28, 0, 28, 74),
       isHaveAppBar: true,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text("Register", style: AppTextStyle.whiteS30W700),
+          Text("Sign In", style: AppTextStyle.whiteS30W700),
           RichText(
             text: TextSpan(
               text: 'If You Need Any Support',
@@ -41,42 +48,27 @@ class _SignUpOptionPageState extends State<SignUpOptionPage> {
               ],
             ),
           ),
-          _buildInputInformationField(),
-          _createAccountButton(),
+          AppTextFormField(
+            controller: _userNameController,
+            hintText: "Enter Username Or Email",
+            isHaveSuffixIcon: false,
+          ),
+          AppTextFormField(
+            controller: _passwordController,
+            hintText: "Password",
+          ),
+          Text(
+            "Recovery password",
+            style: AppTextStyle.greyS14Bold.copyWith(
+              color: AppColors.greySecondary,
+            ),
+          ),
+          _buildButtonSignIn(),
           Text("Or", style: AppTextStyle.whiteS12),
           _buildSignInOption(),
           _buildRegisterOption()
         ],
       ),
-    );
-  }
-
-  AppButton _createAccountButton() {
-    return AppButton(
-      padding: const EdgeInsets.symmetric(horizontal: 118, vertical: 27),
-      child: Text("Create Account", style: AppTextStyle.whiteS16Bold),
-    );
-  }
-
-  Wrap _buildInputInformationField() {
-    return Wrap(
-      runSpacing: 16,
-      children: [
-        AppTextFormField(
-          controller: _fullNameController,
-          hintText: "Full Name",
-          isHaveSuffixIcon: false,
-        ),
-        AppTextFormField(
-          controller: _emailController,
-          hintText: "Enter Email",
-          isHaveSuffixIcon: false,
-        ),
-        AppTextFormField(
-          controller: _passwordController,
-          hintText: "Password",
-        ),
-      ],
     );
   }
 
@@ -88,6 +80,13 @@ class _SignUpOptionPageState extends State<SignUpOptionPage> {
         const SizedBox(width: 58),
         SvgPicture.asset(AppImages.googleIcon),
       ],
+    );
+  }
+  AppButton _buildButtonSignIn(){
+    return AppButton(
+      onTap: ()=> Navigator.pushNamed(context, RouteConfig.homePage),
+      padding: const EdgeInsets.symmetric(horizontal: 118, vertical: 27),
+      child: Text("Sign In", style: AppTextStyle.whiteS16Bold),
     );
   }
 

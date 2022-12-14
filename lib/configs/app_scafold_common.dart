@@ -7,22 +7,26 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AppScaffoldCommon extends StatelessWidget {
   final Color backGroundColor;
-  final Widget? body;
+  final Widget body;
   final EdgeInsetsGeometry? padding;
   final ImageProvider<Object>? decorationImage;
   final bool isHaveAppBar;
   final double? toolbarHeight;
   final EdgeInsetsGeometry? leadingMargin;
+  final Widget? leading;
+  final List<Widget>? actions;
 
   const AppScaffoldCommon({
     Key? key,
     this.padding,
     this.leadingMargin,
+    this.actions,
+    this.leading,
     this.backGroundColor = AppColors.backgroundDark,
     this.isHaveAppBar = false,
     this.toolbarHeight,
     this.decorationImage,
-    this.body,
+    required this.body,
   }) : super(key: key);
 
   @override
@@ -40,6 +44,8 @@ class AppScaffoldCommon extends StatelessWidget {
             : null,
       ),
       child: Scaffold(
+        extendBody: true,
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         appBar: isHaveAppBar
             ? AppBar(
@@ -48,23 +54,25 @@ class AppScaffoldCommon extends StatelessWidget {
                 backgroundColor: Colors.transparent,
                 toolbarHeight: 33,
                 leadingWidth: 62,
+                actions: actions,
                 title: SvgPicture.asset(AppImages.spontifyLogo,
                     height: 33, width: 108),
-                leading: AppButton(
-                  margin: leadingMargin,
-                  height: 32,
-                  onTap: () => Navigator.pop(context),
-                  backgroundColor: AppColors.buttonBack,
-                  buttonShape: BoxShape.circle,
-                  child: const Icon(
-                    FontAwesomeIcons.chevronLeft,
-                    color: AppColors.backIconColor,
-                    size: 14,
-                  ),
-                ),
+                leading: leading ??
+                    AppButton(
+                      margin: leadingMargin,
+                      height: 32,
+                      onTap: () => Navigator.pop(context),
+                      backgroundColor: AppColors.buttonBack,
+                      buttonShape: BoxShape.circle,
+                      child: const Icon(
+                        FontAwesomeIcons.chevronLeft,
+                        color: AppColors.backIconColor,
+                        size: 14,
+                      ),
+                    ),
               )
             : null,
-        body: body,
+        body: body
       ),
     );
   }

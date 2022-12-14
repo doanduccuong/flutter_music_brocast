@@ -3,7 +3,7 @@ import 'package:flutter_base_project/configs/app_color.dart';
 import 'package:flutter_base_project/configs/app_configs.dart';
 import 'package:flutter_base_project/features/domain/repositories/use_repository.dart';
 import 'package:flutter_base_project/features/presentation/page/splash_page/splash_page_bloc/splash_page_cubit.dart';
-import 'package:flutter_base_project/route_config/route_config.dart';
+import 'package:flutter_base_project/router/route_config.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../configs/app_images.dart';

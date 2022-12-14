@@ -64,6 +64,8 @@ class DatabaseConfig {
 class LocationAPIConfig {
   static const String apiKey = '636df07e6e7199992dee41289db80f68';
   static const String apiKey1 = "877fb86140037760886332a3bc66db90";
+  static const String artistRelatedId = "2w9zwq3AktTeYYMuhMjju8";
+  static const String playlistId = "37i9dQZF1DX4Wsb4d7NKfP";
 }
 
 class UpGraderAPIConfig {

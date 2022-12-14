@@ -9,4 +9,5 @@ class AssetsRes {
   static const String CHOOSE_MODE_BACKGROUND = 'assets/images/choose_mode_background.png';
   static const String GOOGLE_ICON = 'assets/images/google_icon.svg';
   static const String SIGN_IN_BACKGROUND = 'assets/images/sign_in_background.png';
+  static const String TOP_BANNER_BACKGROUND = 'assets/images/top_banner_background.png';
 }
