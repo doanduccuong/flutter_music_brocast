@@ -1,4 +1,4 @@
-import 'package:flutter_base_project/core/entites/album_item_entity.dart';
+import 'package:flutter_base_project/features/domain/entites/album_item_entity.dart';
 
 class AlbumDTO {
   final List<AlbumItemEntity> albums;

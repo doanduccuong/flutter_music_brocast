@@ -1,29 +1,22 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../enum/load_status.dart';
-import '../features/data/model/response/user_response/user_entity.dart';
-import '../features/domain/repositories/auth_repository.dart';
-import '../features/domain/repositories/use_repository.dart';
+import '../features/domain/repositories/user_repository.dart';
 import 'dart:developer' as logger;
 
 part 'app_state.dart';
 
 class AppCubit extends Cubit<AppInitial> {
-  UserRepository userRepo;
-  AuthRepository authRepo;
+  UserRepository authRepo;
 
   AppCubit({
     required this.authRepo,
-    required this.userRepo,
   }) : super(const AppInitial());
 
   void fetchProfile() {
     emit(state.copyWith(fetchProfileStatus: LoadStatus.loading));
   }
 
-  void updateProfile(UserEntity user) {
-    emit(state.copyWith(user: user));
-  }
 
   ///Sign Out
   void signOut() async {

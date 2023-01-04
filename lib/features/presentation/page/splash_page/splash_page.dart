@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base_project/configs/app_color.dart';
 import 'package:flutter_base_project/configs/app_configs.dart';
-import 'package:flutter_base_project/features/domain/repositories/use_repository.dart';
 import 'package:flutter_base_project/features/presentation/page/splash_page/splash_page_bloc/splash_page_cubit.dart';
 import 'package:flutter_base_project/router/route_config.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../configs/app_images.dart';
-import '../../../domain/repositories/auth_repository.dart';
+import '../../../domain/repositories/user_repository.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -17,8 +16,7 @@ class SplashPage extends StatelessWidget {
     return BlocProvider(
       create: (context) {
         return SplashPageCubit(
-          authRepository: RepositoryProvider.of<AuthRepository>(context),
-          userRepository: RepositoryProvider.of<UserRepository>(context),
+          authRepository: RepositoryProvider.of<UserRepository>(context),
         );
       },
       child: const SplashChildPage(),

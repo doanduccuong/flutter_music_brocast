@@ -6,6 +6,8 @@ class LocalStorage {
   static const _introKey = '_introKey';
 
   static const _authKey = '_authKey';
+
+  static const _audioPlayerKey = "_audioPlayerKey";
   final FlutterSecureStorage _storage;
 
   LocalStorage._(this._storage);
@@ -15,6 +17,21 @@ class LocalStorage {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       return prefs.getString(_authKey) ?? "";
+    } catch (e) {
+      developer.log(e.toString());
+      return "";
+    }
+  }
+
+  static void saveToCurrentPlayMusic(String urlPath) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_authKey, urlPath);
+  }
+
+  static Future<String> getCurrentPlayMusic() async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.getString(_audioPlayerKey) ?? "";
     } catch (e) {
       developer.log(e.toString());
       return "";

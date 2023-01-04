@@ -17,6 +17,8 @@ class AppImages {
   static const chooseModeBackGround = "assets/images/choose_mode_background.png";
   static const signInBackGround = "assets/images/sign_in_background.png";
   static const topBannerBackGround = "assets/images/top_banner_background.png";
+  static const mockMusicBackGround = "assets/images/music_mock_back_ground.svg";
+
 
   ///Icon
   static const googleIcon = "assets/images/google_icon.svg";

@@ -6,4 +6,5 @@ class RouteConfig {
   static const String signInOptionPage = "/signInOptionPage";
   static const String signUpOptionPage = "/signUpOptionPage";
   static const String homePage = "/homePage";
+  static const String musicPage = "/musicPage";
 }

@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_base_project/configs/app_configs.dart';
-import 'package:flutter_base_project/core/entites/album_entity.dart';
-import 'package:flutter_base_project/core/entites/artist_entity.dart';
-import 'package:flutter_base_project/core/entites/artist_related_entity.dart';
-import 'package:retrofit/http.dart';
-import '../../../features/data/model/response/token_response/token_entity.dart';
+import 'package:flutter_base_project/features/domain/entites/album_entity.dart';
+import 'package:flutter_base_project/features/domain/entites/artist_entity.dart';
+import 'package:flutter_base_project/features/domain/entites/artist_related_entity.dart';
+import 'package:flutter_base_project/features/domain/entites/playlist_entity.dart';
 
+import 'package:retrofit/http.dart';
 part 'user_rest_client.g.dart';
 
 @RestApi()
@@ -25,5 +25,9 @@ abstract class UserRestClient {
   @GET("/artist_related/")
   Future<ArtistRelatedEntity> getArtistsRelated({
     @Query("id") String ids = LocationAPIConfig.artistRelatedId,
+  });
+  @GET("/playlist/")
+  Future<PlaylistEntity> getPlayList({
+    @Query("id") String ids = LocationAPIConfig.playlistId,
   });
 }

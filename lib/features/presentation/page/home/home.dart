@@ -4,14 +4,12 @@ import 'package:flutter_base_project/configs/app_images.dart';
 import 'package:flutter_base_project/configs/app_scafold_common.dart';
 import 'package:flutter_base_project/configs/app_text_style.dart';
 import 'package:flutter_base_project/enum/enum.dart';
-import 'package:flutter_base_project/features/domain/repositories/auth_repository.dart';
+import 'package:flutter_base_project/features/domain/repositories/user_repository.dart';
 import 'package:flutter_base_project/features/presentation/page/home/home_tab/artists_tab.dart';
 import 'package:flutter_base_project/features/presentation/page/home/home_tab/news_tab.dart';
 import 'package:flutter_base_project/features/presentation/page/home/home_tab/podcast_tab.dart';
 import 'package:flutter_base_project/features/presentation/page/home/home_tab/video_tab.dart';
-import 'package:flutter_base_project/features/presentation/page/home/widget/musician_item.dart';
 import 'package:flutter_base_project/widget/app_loading_widget.dart';
-import 'package:flutter_base_project/widget/play_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -24,7 +22,7 @@ class HomePageInitialize extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-      HomeBloc(authRepository: context.read<AuthRepository>())
+      HomeBloc(authRepository: context.read<UserRepository>())
         ..add(FetchingDataEvent()),
       child: const HomePage(),
     );
@@ -54,6 +52,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         return const AppLoadingWidget();
       }
       return AppScaffoldCommon(
+        isShowMusicBar: true,
         backGroundColor: AppColors.backgroundDark,
         body: SingleChildScrollView(
           child: Column(
@@ -89,7 +88,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 2000,
                 child: TabBarView(
                   controller: _tabController,

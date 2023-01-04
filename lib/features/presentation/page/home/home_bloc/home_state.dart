@@ -8,12 +8,14 @@ class HomePageState extends HomeState {
   final PageStatus pageStatus;
   final ArtistEntity? artistData;
   final ArtistRelatedEntity? artistRelatedData;
+  final PlaylistEntity? playlistData;
 
   HomePageState({
     this.albumData,
     this.pageStatus = PageStatus.LOADING,
     this.artistData,
     this.artistRelatedData,
+    this.playlistData,
   });
 
   HomePageState copyWith({
@@ -21,12 +23,15 @@ class HomePageState extends HomeState {
     PageStatus? pageStatus,
     ArtistEntity? artistData,
     ArtistRelatedEntity? artistRelatedData,
+    PlaylistEntity? playListData,
   }) {
     return HomePageState(
-        albumData: data ?? albumData,
-        pageStatus: pageStatus ?? this.pageStatus,
-        artistData: artistData ?? this.artistData,
-        artistRelatedData: artistRelatedData ?? this.artistRelatedData);
+      albumData: data ?? albumData,
+      pageStatus: pageStatus ?? this.pageStatus,
+      artistData: artistData ?? this.artistData,
+      artistRelatedData: artistRelatedData ?? this.artistRelatedData,
+      playlistData: playListData ?? playlistData,
+    );
   }
 
   @override
@@ -35,5 +40,6 @@ class HomePageState extends HomeState {
         pageStatus,
         artistData,
         artistRelatedData,
+        playlistData,
       ];
 }

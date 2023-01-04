@@ -28,6 +28,8 @@ class AppColors {
   ///Text
   static const Color textWhite = Color(0xFFDADADA);
   static const Color textWhite1 = Color(0xFFF6F6F6);
+  static const Color textWhite2 = Color (0xFFCBCBCB);
+  static const Color textWhite3 = Color(0xFF939393);
   static const Color textBlack = Color(0xFF000000);
   static const Color textBlue = Color(0xFF0000FF);
   static const Color textDisable = Color(0xFF89a3b1);
@@ -38,6 +40,7 @@ class AppColors {
   static const Color greySecondary = Color(0xFFAEAEAE);
   static const Color blue = Color(0xFF288CE9);
   static const Color unselectedColor = Color(0xFF616161);
+  static const Color durationColor = Color(0xFF878787);
 
   ///TextField
   static const Color textFieldEnabledBorder = Color(0xFF919191);
@@ -59,6 +62,7 @@ class AppColors {
 
   /// Tabs
   static const Color imageBG = Color(0xFF919191);
+  static const Color sliderColor = Color(0xFFB7B7B7);
 
   ///BottomNavigationBar
   static const Color bottomNavigationBar = Color(0xFF919191);
