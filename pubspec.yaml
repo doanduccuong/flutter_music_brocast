@@ -59,6 +59,9 @@ dependencies:
   audioplayers: ^1.1.1
   intl: ^0.17.0
   flutter_lyric: ^2.0.4+6
+  google_sign_in: ^5.4.2
+  firebase_core: ^2.4.1
+  firebase_auth: ^4.2.5
 
 dev_dependencies:
   flutter_test:
