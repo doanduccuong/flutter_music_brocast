@@ -3,26 +3,23 @@ import 'dart:developer' as logger;
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter_base_project/core/platform/network_exception.dart';
-import 'package:flutter_base_project/features/data/data_source/local_storage.dart';
 
 class ApiInterceptors extends InterceptorsWrapper {
   @override
-  void onRequest(
-      RequestOptions options, RequestInterceptorHandler handler) async {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     final method = options.method;
     final uri = options.uri;
     final data = options.data;
     options.headers = {
-      'X-RapidAPI-Key': '20b5e3e205msh24c1b0718606d92p129e39jsn589fb5602927',
-      'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+      'Authorization':
+          // ignore: prefer_interpolation_to_compose_strings
+          'Basic ${base64.encode(StringBuffer("acf73440d1604f0caa90e51a1240c08f" ':' "95b66bd88f3a440497f47c53fcd62796").toString().codeUnits)}'
     };
     if (method == 'GET') {
-      logger.log(
-          "✈️ REQUEST[$method] => PATH: $uri \n Token: ${options.headers}");
+      logger.log("✈️ REQUEST[$method] => PATH: $uri \n Token: ${options.headers}");
     } else {
       try {
-        logger.log(
-            "✈️ REQUEST[$method] => PATH: $uri \n DATA: ${jsonEncode(data)}");
+        logger.log("✈️ REQUEST[$method] => PATH: $uri \n DATA: ${jsonEncode(data)}");
       } catch (e) {
         logger.log("✈️ REQUEST[$method] => PATH: $uri \n DATA: $data");
       }
@@ -38,7 +35,7 @@ class ApiInterceptors extends InterceptorsWrapper {
     logger.log("✅ RESPONSE[$statusCode] => PATH: $uri\n DATA: $data");
     //Handle section expired
     if (response.statusCode == 401) {
-      LocalStorage.removeApiTokenKey();
+      // LocalStorage.removeApiTokenKey();
     }
     super.onResponse(response, handler);
   }

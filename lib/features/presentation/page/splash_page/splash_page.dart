@@ -16,9 +16,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) {
-        return SplashPageCubit(
-          authRepository: RepositoryProvider.of<UserRepository>(context),
-        );
+        return SplashPageCubit();
       },
       child: const SplashChildPage(),
     );
@@ -33,11 +31,14 @@ class SplashChildPage extends StatefulWidget {
 }
 
 class _SplashChildPageState extends State<SplashChildPage> {
+  final _splashCubit = SplashPageCubit();
   @override
   void initState() {
     super.initState();
+    _splashCubit.requestAuthorization();
     startAnimation();
   }
+
   Future startAnimation() async {
     await Future.delayed(const Duration(milliseconds: 500));
     await Future.delayed(const Duration(milliseconds: 500));

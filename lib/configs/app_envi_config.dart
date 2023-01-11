@@ -19,11 +19,11 @@ extension EnvironmentExt on Environment {
   String get baseUrl {
     switch (this) {
       case Environment.dev:
-        return "https://api.spotify.com/v1";
+        return "https://accounts.spotify.com";
       case Environment.stg:
-        return "https://api.spotify.com/v1";
+        return "https://accounts.spotify.com";
       case Environment.prod:
-        return "https://api.spotify.com/v1";
+        return "https://accounts.spotify.com";
     }
   }
 }

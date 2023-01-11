@@ -31,7 +31,7 @@ class PlayButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        LocalStorage.saveToCurrentPlayMusic(urlPath);
+        // LocalStorage.saveToCurrentPlayMusic(urlPath);
         callBack?.call();
       },
     );

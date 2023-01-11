@@ -24,7 +24,6 @@ class MusicPage extends StatefulWidget {
 
 class _MusicPageState extends State<MusicPage> {
   final _scrollController = ScrollController();
-  final currentPlayingMusic = LocalStorage.getCurrentPlayMusic();
   var lyricModel = LyricsModelBuilder.create()
       .bindLyricToMain(normalLyric)
       .bindLyricToExt(transLyric)

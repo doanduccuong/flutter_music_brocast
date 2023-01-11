@@ -35,8 +35,8 @@ class AudioPlayerApplicationBloc
     InitializeAudio event,
     Emitter<AudioPlayerApplicationState> emit,
   ) async {
-    final currentPLayMusic = await LocalStorage.getCurrentPlayMusic();
-    emit(state.copyWith(currentPlayer: currentPLayMusic));
+    // final currentPLayMusic = await LocalStorage.getCurrentPlayMusic();
+    emit(state.copyWith(currentPlayer: "currentPLayMusic"));
   }
 
   void _onPlayerStateChange(
