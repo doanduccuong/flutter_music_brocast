@@ -6,6 +6,8 @@ import 'package:flutter_base_project/features/domain/entites/artist_entity.dart'
 import 'package:flutter_base_project/features/domain/entites/artist_related_entity.dart';
 import 'package:flutter_base_project/features/domain/entites/playlist_entity.dart';
 import 'package:flutter_base_project/features/domain/repositories/user_repository.dart';
+import 'package:flutter_base_project/injection.dart';
+import 'package:flutter_base_project/injection.dart';
 import 'package:flutter_base_project/model/album_dto.dart';
 import 'package:meta/meta.dart';
 
@@ -14,13 +16,12 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomePageState> {
-  final UserRepository authRepository;
 
-  HomeBloc({required this.authRepository}) : super(HomePageState()) {
+  HomeBloc() : super(HomePageState()) {
     on<FetchingDataEvent>((event, emit) async {
       emit(state.copyWith(pageStatus: PageStatus.LOADING));
-      final artistRelatedRes = await authRepository.getArtistRelated();
-      final playListRes = await authRepository.getPlayList();
+      final artistRelatedRes = await getIt<UserRepository>().getArtistRelated();
+      final playListRes = await getIt<UserRepository>().getPlayList();
       emit(state.copyWith(
         artistRelatedData: artistRelatedRes,
         pageStatus: PageStatus.LOADED,

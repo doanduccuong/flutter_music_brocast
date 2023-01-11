@@ -4,12 +4,12 @@ import 'package:flutter_base_project/configs/app_color.dart';
 import 'package:flutter_base_project/configs/app_images.dart';
 import 'package:flutter_base_project/configs/app_scafold_common.dart';
 import 'package:flutter_base_project/configs/app_text_style.dart';
-import 'package:flutter_base_project/configs/app_themes.dart';
 import 'package:flutter_base_project/enum/enum.dart';
 import 'package:flutter_base_project/router/route_config.dart';
 import 'package:flutter_base_project/setting/app_setting/app_setting_cubit.dart';
 import 'package:flutter_base_project/widget/app_button.dart';
 import 'package:flutter_base_project/widget/app_collumn_text.dart';
+import 'package:flutter_base_project/widget/base_scafold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,8 +19,8 @@ class ChooseModePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffoldCommon(
-      backGroundColor: AppColors.backgroundGrey,
+    return BaseScaffold(
+      backgroundColor: AppColors.backgroundGrey,
       padding: const EdgeInsets.only(top: 50),
       decorationImage: const AssetImage(AppImages.chooseModeBackGround),
       body: Column(

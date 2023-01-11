@@ -5,7 +5,6 @@ import 'package:flutter_base_project/configs/app_images.dart';
 import 'package:flutter_base_project/configs/app_text_style.dart';
 import 'package:flutter_base_project/extension/format_time.dart';
 import 'package:flutter_base_project/features/presentation/page/music_page/music_page.dart';
-import 'package:flutter_base_project/router/route_config.dart';
 import 'package:flutter_base_project/widget/app_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';

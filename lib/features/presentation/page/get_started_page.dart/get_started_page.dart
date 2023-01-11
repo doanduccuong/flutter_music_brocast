@@ -5,6 +5,7 @@ import 'package:flutter_base_project/configs/app_scafold_common.dart';
 import 'package:flutter_base_project/configs/app_text_style.dart';
 import 'package:flutter_base_project/router/route_config.dart';
 import 'package:flutter_base_project/widget/app_button.dart';
+import 'package:flutter_base_project/widget/base_scafold.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class GetStartedPage extends StatelessWidget {
@@ -12,9 +13,9 @@ class GetStartedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffoldCommon(
+    return BaseScaffold(
       padding: const EdgeInsets.only(top: 50,left: 33),
-      backGroundColor: Colors.transparent,
+      backgroundColor: Colors.transparent,
       decorationImage: const AssetImage(AppImages.getStartBackGround),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

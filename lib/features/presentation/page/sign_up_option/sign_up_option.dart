@@ -5,6 +5,7 @@ import 'package:flutter_base_project/configs/app_scafold_common.dart';
 import 'package:flutter_base_project/configs/app_text_style.dart';
 import 'package:flutter_base_project/widget/app_button.dart';
 import 'package:flutter_base_project/widget/app_text_form_field.dart';
+import 'package:flutter_base_project/widget/base_scafold.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUpOptionPage extends StatefulWidget {
@@ -20,9 +21,8 @@ class _SignUpOptionPageState extends State<SignUpOptionPage> {
   final _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return AppScaffoldCommon(
+    return BaseScaffold(
       padding: const EdgeInsets.fromLTRB(28, 36, 28, 74),
-      isHaveAppBar: true,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

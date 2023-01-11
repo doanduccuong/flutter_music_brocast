@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_base_project/core/platform/user_rest_client/user_rest_client.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../configs/app_configs.dart';
 import 'interceptor.dart';
-
+@singleton
 class ApiUtil {
   static Dio? dio;
 

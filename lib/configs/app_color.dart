@@ -14,6 +14,7 @@ class AppColors {
   static const Color backgroundGrey = Color(0xFF494949);
   static const Color kBrandPrimaryColor = Color(0xFF279656);
   static const Color kWhiteBackgroundColor = Color(0xFFFFFFFF);
+  static const Color miniPlayerBackGround = Color(0xFF3C0002);
 
 
   ///Shadow
@@ -58,6 +59,8 @@ class AppColors {
   static const Color buttonBGFourth = Color(0xFF42C83C);
   static const Color buttonBack = Color(0xFF232222);
   static const Color buttonPLay = Color(0xFF2C2C2C);
+  static const Color buttonTextBackGroundColor = Color(0xFF2B2B2B);
+  static const Color albumCardBackGroundColor = Color(0xFF292929);
 
 
   /// Tabs

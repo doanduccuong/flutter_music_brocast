@@ -1,26 +1,21 @@
 import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_base_project/features/data/data_source/local_storage.dart';
-import 'package:flutter_base_project/features/domain/repositories/user_repository.dart';
+import 'package:injectable/injectable.dart';
 
-import '../features/presentation/page/home/home_tab/news_tab.dart';
 
 part 'audio_player_event.dart';
 
 part 'audio_player_state.dart';
-
+@singleton
 class AudioPlayerApplicationBloc
     extends Bloc<AudioPlayerEvent, AudioPlayerApplicationState> {
   final audioPlayer = AudioPlayer();
-  final UserRepository authPlayerRepository;
-  AudioPlayerApplicationBloc({
-    required this.authPlayerRepository,
-  }) : super(AudioPlayerApplicationState()) {
+  AudioPlayerApplicationBloc() : super(AudioPlayerApplicationState()) {
     audioPlayer.onPlayerStateChanged.listen((PlayerState playerState) {
       add(OnPlayerStateChange(playerState: playerState));
     });

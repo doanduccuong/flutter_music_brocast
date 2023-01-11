@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_base_project/audio_player_handler/audio_player_bloc.dart';
-import 'package:flutter_base_project/core/platform/user_rest_client/user_rest_client.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_base_project/router/route_config.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_base_project/router/go_router.dart' as go_router;
 import 'package:flutter_base_project/setting/app_cubit.dart';
 import 'package:flutter_base_project/setting/app_setting/app_setting_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'core/platform/network/google_service/google_service_bloc.dart';
 import 'generated/l10n.dart';
+import 'injection.dart';
 import 'router/router.dart' as router;
 import 'configs/app_configs.dart';
 import 'configs/app_themes.dart';
-import 'core/platform/network/network_info.dart';
 import 'features/data/repositories/user_repository_impl.dart';
 import 'features/domain/repositories/user_repository.dart';
 
@@ -25,44 +26,33 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late UserRestClient _userRestClient;
-
   @override
   void initState() {
-    _userRestClient = ApiUtil.apiClient;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    //Setup PortraitUp only
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<UserRepository>(create: (context) {
-          return UserRepositoryImpl(userRestClient: _userRestClient);
+          return UserRepositoryImpl();
         }),
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<AppCubit>(create: (context) {
-            final authRepo = RepositoryProvider.of<UserRepository>(context);
-            return AppCubit(
-              authRepo: authRepo,
-            );
-          }),
-          BlocProvider<AppSettingCubit>(create: (context) {
-            return AppSettingCubit();
-          }),
-          BlocProvider<AudioPlayerApplicationBloc>(create: (context) {
-            final authRepo = RepositoryProvider.of<UserRepository>(context);
-            return AudioPlayerApplicationBloc(authPlayerRepository: authRepo)
+          BlocProvider.value(value: getIt<GoogleServiceBloc>()),
+          BlocProvider<AppCubit>(create: (context) => AppCubit()),
+          BlocProvider<AppSettingCubit>(create: (context) => AppSettingCubit()),
+          BlocProvider<AudioPlayerApplicationBloc>(
+            create: (context) => AudioPlayerApplicationBloc()
               ..add(
                 InitializeAudio(),
-              );
-          }),
+              ),
+          ),
         ],
         child: BlocBuilder<AppSettingCubit, AppSettingState>(
           builder: (context, state) {

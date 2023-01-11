@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base_project/configs/app_color.dart';
-import 'package:flutter_base_project/configs/app_images.dart';
-import 'package:flutter_base_project/configs/app_scafold_common.dart';
 import 'package:flutter_base_project/configs/app_text_style.dart';
 import 'package:flutter_base_project/enum/enum.dart';
-import 'package:flutter_base_project/features/domain/repositories/user_repository.dart';
-import 'package:flutter_base_project/features/presentation/page/home/home_tab/artists_tab.dart';
-import 'package:flutter_base_project/features/presentation/page/home/home_tab/news_tab.dart';
-import 'package:flutter_base_project/features/presentation/page/home/home_tab/podcast_tab.dart';
-import 'package:flutter_base_project/features/presentation/page/home/home_tab/video_tab.dart';
-import 'package:flutter_base_project/widget/app_loading_widget.dart';
+import 'package:flutter_base_project/features/presentation/page/home/widget/album_card.dart';
+import 'package:flutter_base_project/features/presentation/page/home/widget/hip_hop_item.dart';
+import 'package:flutter_base_project/widget/app_text_button.dart';
+import 'package:flutter_base_project/widget/base_scafold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -21,9 +17,7 @@ class HomePageInitialize extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-      HomeBloc(authRepository: context.read<UserRepository>())
-        ..add(FetchingDataEvent()),
+      create: (context) => HomeBloc()..add(FetchingDataEvent()),
       child: const HomePage(),
     );
   }
@@ -48,67 +42,62 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomePageState>(builder: (context, state) {
-      if (state.pageStatus == PageStatus.LOADING) {
-        return const AppLoadingWidget();
-      }
-      return AppScaffoldCommon(
-        isShowMusicBar: true,
-        backGroundColor: AppColors.backgroundDark,
+      return BaseScaffold(
+        padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+        isLoading: state.pageStatus == PageStatus.LOADING,
+        isShowMusicBar: false,
+        backgroundColor: AppColors.backgroundDark,
         body: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 40),
-              _buildUpComingBanner(),
-              PreferredSize(
-                preferredSize: const Size.fromHeight(30),
-                child: TabBar(
-                  padding: const EdgeInsets.only(top: 40),
-                  isScrollable: true,
-                  indicatorColor: AppColors.buttonBGPrimary,
-                  indicatorWeight: 3,
-                  onTap: (int tabIndex) => _onTap(),
-                  controller: _tabController,
-                  labelColor: AppColors.textWhite,
-                  unselectedLabelColor: AppColors.unselectedColor,
-                  labelStyle: AppTextStyle.whiteS20Bold,
-                  indicator: const UnderlineTabIndicator(
-                    borderSide: BorderSide(
-                        width: 3.0, color: AppColors.buttonBGPrimary),
-                    insets: EdgeInsets.symmetric(horizontal: 12.0),
-                  ),
-                  indicatorSize: TabBarIndicatorSize.label,
-                  labelPadding: const EdgeInsets.symmetric(horizontal: 30),
-                  tabs: const [
-                    Tab(text: "News"),
-                    Tab(text: "Video"),
-                    Tab(text: "Artis"),
-                    Tab(text: "Podcast"),
-                  ],
+              const SizedBox(height: 25),
+              _buildCategoryOption(),
+              _buildGridListAlbum(),
+              Text(
+                "All about Viet hip-hop",
+                style: AppTextStyle.white.copyWith(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(
-                height: 2000,
-                child: TabBarView(
-                  controller: _tabController,
-                    children: const [
-                  NewsTab(),
-                  VideoTab(),
-                  ArtistsTab(),
-                  PodcastTab(),
-                  ]),
+              _buildHipHopCategory(),
+              Text(
+                "Made for current user",
+                style: AppTextStyle.white.copyWith(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-
+              _buildHipHopCategory(),
+              Text(
+                "Indie",
+                style: AppTextStyle.white.copyWith(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              _buildHipHopCategory(),
+              Text(
+                "Recent play",
+                style: AppTextStyle.white.copyWith(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              _buildHipHopCategory(),
             ],
           ),
         ),
         actions: const [
-          Icon(FontAwesomeIcons.ellipsisVertical, color: AppColors.textWhite),
-          SizedBox(width: 38),
+          Icon(FontAwesomeIcons.bell, color: AppColors.textWhite),
+          SizedBox(width: 20),
+          Icon(FontAwesomeIcons.clock, color: AppColors.textWhite),
+          SizedBox(width: 20),
+          Icon(FontAwesomeIcons.gear, color: AppColors.textWhite),
         ],
         isHaveAppBar: true,
-        leading: const Icon(Icons.search, size: 35, color: AppColors.textWhite),
       );
     });
   }
@@ -117,29 +106,43 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     context.read<HomeBloc>().add(ChangeTabEvent());
   }
 
-  Container _buildUpComingBanner() {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(20, 14, 185, 14),
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.fill,
-              filterQuality: FilterQuality.high,
-              image: AssetImage(AppImages.topBannerBackGround))),
-      child: Wrap(
-        direction: Axis.vertical,
-        runSpacing: 10,
-        children: [
-          Text(
-            "New Album",
-            style: AppTextStyle.whiteS10Bold,
-          ),
-          Text("Happier Than \nEver", style: AppTextStyle.whiteS20Bold),
-          Text("Billie Eilish", style: AppTextStyle.whiteS14Bold),
-        ],
+  Widget _buildHipHopCategory() {
+    return SizedBox(
+      height: 205,
+      child: ListView.separated(
+        padding: const EdgeInsets.only(top: 10,bottom: 20),
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        itemBuilder: (context, index) => const HipHopItem(),
+        separatorBuilder: (context, index) => const SizedBox(width: 15),
+        itemCount: 10,
       ),
     );
   }
 
+  Widget _buildGridListAlbum() {
+    return GridView.count(
+      padding: const EdgeInsets.only(top: 25, bottom: 20),
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      mainAxisSpacing: 10,
+      crossAxisSpacing: 10,
+      childAspectRatio: 420 / 132,
+      crossAxisCount: 2,
+      children: List.generate(6, (index) => const AlbumCard()),
+    );
+  }
 
-
+  Row _buildCategoryOption() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: const [
+        AppTextButton(
+          text: "Music",
+          margin: EdgeInsets.only(right: 10),
+        ),
+        AppTextButton(text: "Podcasts & Shows"),
+      ],
+    );
+  }
 }

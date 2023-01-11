@@ -16,36 +16,7 @@ class SplashPageCubit extends Cubit<SplashPageState> {
     Future.delayed(const Duration(seconds: 1));
     AppConfigs.navigatorKey.currentState?.pushNamed(RouteConfig.getStartedPage);
   }
-  // void checkLogin() async {
-  //   await Future.delayed(const Duration(seconds: 2));
-  //   final token = await authRepository.getToken();
-  //   if (token == null) {
-  //     AppConfigs.navigatorKey.currentState?.pushNamed(RouteConfig.splashPage);
-  //   } else {
-  //     try {
-  //       // await userRepository.getProfile();
-  //     } catch (error, s) {
-  //       logger.log(error.toString(), stackTrace: s);
-  //       //Check 401
-  //       if (error is DioError) {
-  //         if (error.response?.statusCode == 401) {
-  //           //Todo
-  //           // authService.signOut();
-  //           checkLogin();
-  //           return;
-  //         }
-  //       }
-  //       AppDialog.defaultDialog(
-  //         message: "An error happened. Please check your connection!",
-  //         textConfirm: "Retry",
-  //         onConfirm: () {
-  //           checkLogin();
-  //         },
-  //       );
-  //       return;
-  //     }
-  //     //TODO navigate to main page
-  //     // Get.offAll(() => const MainPage());
-  //   }
-  // }
+  void requestAuthorization(){
+
+  }
 }

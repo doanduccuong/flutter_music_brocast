@@ -19,11 +19,11 @@ extension EnvironmentExt on Environment {
   String get baseUrl {
     switch (this) {
       case Environment.dev:
-        return "https://spotify23.p.rapidapi.com";
+        return "https://api.spotify.com/v1";
       case Environment.stg:
-        return "https://spotify23.p.rapidapi.com";
+        return "https://api.spotify.com/v1";
       case Environment.prod:
-        return "https://spotify23.p.rapidapi.com";
+        return "https://api.spotify.com/v1";
     }
   }
 }

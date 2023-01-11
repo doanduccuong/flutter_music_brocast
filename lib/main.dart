@@ -7,6 +7,7 @@ import 'app.dart';
 import 'configs/app_configs.dart';
 import 'configs/app_envi_config.dart';
 import 'firebase_options.dart';
+import 'injection.dart';
 
 void main() async {
   AppConfigs.env = Environment.dev;
@@ -18,6 +19,7 @@ void main() async {
       storageDirectory: kIsWeb
           ? HydratedStorage.webStorageDirectory
           : await getTemporaryDirectory());
+   configureDependencies();
   HydratedBlocOverrides.runZoned(
     () => runApp(const MyApp()),
     storage: storage,

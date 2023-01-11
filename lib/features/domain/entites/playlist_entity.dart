@@ -1,3 +1,5 @@
+import 'package:injectable/injectable.dart';
+
 class PlaylistEntity {
   final bool? collaborative;
   final String? description;

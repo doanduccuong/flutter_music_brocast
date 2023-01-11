@@ -3,6 +3,7 @@ import 'package:flutter_base_project/configs/app_color.dart';
 import 'package:flutter_base_project/configs/app_configs.dart';
 import 'package:flutter_base_project/features/presentation/page/splash_page/splash_page_bloc/splash_page_cubit.dart';
 import 'package:flutter_base_project/router/route_config.dart';
+import 'package:flutter_base_project/widget/base_scafold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../configs/app_images.dart';
@@ -45,7 +46,7 @@ class _SplashChildPageState extends State<SplashChildPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BaseScaffold(
       backgroundColor: AppColors.backgroundDark,
       body: Container(
         alignment: Alignment.center,

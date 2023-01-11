@@ -8,6 +8,7 @@ class LocalStorage {
   static const _authKey = '_authKey';
 
   static const _audioPlayerKey = "_audioPlayerKey";
+
   final FlutterSecureStorage _storage;
 
   LocalStorage._(this._storage);

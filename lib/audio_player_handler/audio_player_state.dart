@@ -32,7 +32,7 @@ class AudioPlayerApplicationState extends AudioPLayerState {
   }) {
     return AudioPlayerApplicationState(
       isPlaying: isPlaying ?? this.isPlaying,
-      currentPlayer: currentPlayer ?? defaultUrlPath,
+      currentPlayer: currentPlayer ?? "",
       duration: duration ?? this.duration,
       position: position ?? this.position,
     );

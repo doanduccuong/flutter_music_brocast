@@ -21,7 +21,7 @@ Route<dynamic>? generateRoute(RouteSettings settings) {
     case RouteConfig.signInPage:
       return MaterialPageRoute(builder: (_) =>  const SignInPage(),settings: settings);
     case RouteConfig.signInOptionPage:
-      return MaterialPageRoute(builder: (_) =>  const SignInOptionPage(),settings: settings);
+      return MaterialPageRoute(builder: (_) =>  const SignInOptionPageInitialize(),settings: settings);
     case RouteConfig.signUpOptionPage:
       return MaterialPageRoute(builder: (_) =>  const SignUpOptionPage(),settings: settings);
     case RouteConfig.homePage:
