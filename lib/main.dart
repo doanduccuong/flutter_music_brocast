@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base_project/core/platform/network/app_auth.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'app.dart';
@@ -19,6 +20,8 @@ void main() async {
       storageDirectory: kIsWeb
           ? HydratedStorage.webStorageDirectory
           : await getTemporaryDirectory());
+  // var client = await createClient();
+  // print(await client.read(Uri.http('example.com', 'protected-resources.txt')));
    configureDependencies();
   HydratedBlocOverrides.runZoned(
     () => runApp(const MyApp()),

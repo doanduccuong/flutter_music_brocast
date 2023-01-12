@@ -7,19 +7,18 @@ import 'app_envi_config.dart';
 class AppConfigs {
   AppConfigs._();
 
-
-
   static const String appName = "Newwave Solution JSC";
 
   static Environment env = Environment.prod;
 
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-
   ///API Env
   static String get baseUrl => env.baseUrl;
 
   static String get envName => env.envName;
+
+  static String authBaseUrl = "https://accounts.spotify.com";
 
   ///Paging
   static const pageSize = 40;
@@ -35,8 +34,7 @@ class AppConfigs {
   static const dateAPIFormat = 'dd/MM/yyyy';
   static const dateDisplayFormat = 'dd/MM/yyyy';
 
-  static const dateTimeAPIFormat =
-      "MM/dd/yyyy'T'hh:mm:ss.SSSZ"; //Use DateTime.parse(date) instead of ...
+  static const dateTimeAPIFormat = "MM/dd/yyyy'T'hh:mm:ss.SSSZ"; //Use DateTime.parse(date) instead of ...
   static const dateTimeDisplayFormat = 'dd/MM/yyyy HH:mm';
 
   ///Date range
@@ -71,3 +69,5 @@ class LocationAPIConfig {
 class UpGraderAPIConfig {
   static const String apiKey = '';
 }
+
+

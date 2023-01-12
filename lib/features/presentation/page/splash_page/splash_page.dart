@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_base_project/configs/app_color.dart';
 import 'package:flutter_base_project/configs/app_configs.dart';
 import 'package:flutter_base_project/features/presentation/page/splash_page/splash_page_bloc/splash_page_cubit.dart';
+import 'package:flutter_base_project/injection.dart';
 import 'package:flutter_base_project/router/route_config.dart';
+import 'package:flutter_base_project/setting/app_cubit.dart';
 import 'package:flutter_base_project/widget/base_scafold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../configs/app_images.dart';
-import '../../../domain/repositories/user_repository.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -31,11 +32,11 @@ class SplashChildPage extends StatefulWidget {
 }
 
 class _SplashChildPageState extends State<SplashChildPage> {
-  final _splashCubit = SplashPageCubit();
+
   @override
   void initState() {
     super.initState();
-    _splashCubit.requestAuthorization();
+    getIt<AppCubit>().requestAuthorization();
     startAnimation();
   }
 

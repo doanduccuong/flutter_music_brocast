@@ -4,15 +4,18 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter_base_project/core/platform/network_exception.dart';
 
-class ApiInterceptors extends InterceptorsWrapper {
+import 'app_auth.dart';
+
+class AuthInterceptor extends InterceptorsWrapper {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     final method = options.method;
     final uri = options.uri;
     final data = options.data;
     options.headers = {
-      // 'Authorization':
-      //     'Basic ${base64.encode(StringBuffer("acf73440d1604f0caa90e51a1240c08f" ':' "95b66bd88f3a440497f47c53fcd62796").toString().codeUnits)}'
+      'Authorization': 'Basic ${base64.encode(
+        StringBuffer('$CLIENT_ID:$CLIENT_SECRET').toString().codeUnits,
+      )}'
     };
     if (method == 'GET') {
       logger.log("✈️ REQUEST[$method] => PATH: $uri \n Token: ${options.headers}");

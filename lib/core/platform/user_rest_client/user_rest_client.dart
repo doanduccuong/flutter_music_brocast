@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_base_project/configs/app_configs.dart';
 import 'package:flutter_base_project/core/platform/network/network_info.dart';
-import 'package:flutter_base_project/features/data/model/response/auth_response.dart';
 import 'package:flutter_base_project/features/domain/entites/album_entity.dart';
 import 'package:flutter_base_project/features/domain/entites/artist_entity.dart';
 import 'package:flutter_base_project/features/domain/entites/artist_related_entity.dart';
@@ -39,21 +38,5 @@ abstract class UserRestClient {
   @GET("/playlist/")
   Future<PlaylistEntity> getPlayList({
     @Query("id") String ids = LocationAPIConfig.playlistId,
-  });
-
-  @GET("/authorize")
-  Future<AuthResponse> requestAuthorization({
-    @Query("client_id") String clientId = "acf73440d1604f0caa90e51a1240c08f",
-    @Query("response_type") String responseType = "code",
-    @Query("redirect_uri") String redirectUri = "http://cuongdd1.com/callback",
-    @Query("state") String state = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890",
-    @Query("scope") String scope = "user-read-private user-read-email",
-  });
-
-  @POST("/api/token")
-  Future<AuthResponse> requestAccessToken({
-    @Query("grant_type") String grantType = "",
-    @Query("code") String code = "",
-    @Query("redirect_uri") String redirectUri = "http://cuongdd1.com/callback",
   });
 }
